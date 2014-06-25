@@ -1,11 +1,3 @@
-/*
- * grunt-githooks
- * https://github.com/rhumaric/grunt-githooks
- *
- * Copyright (c) 2013 Romaric Pascal
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 var githooks = require('../lib/githooks'),
@@ -23,9 +15,6 @@ var defaults = {
 };
 
 var task = module.exports = function(grunt) {
-
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('githooks', 'Binds grunt tasks to git hooks', function() {
     
