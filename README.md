@@ -1,7 +1,7 @@
-# grunt-githooks
+# grunt-contrib-githooks
 
-[![Build Status](https://travis-ci.org/rhumaric/grunt-githooks.png?branch=master)](https://travis-ci.org/rhumaric/grunt-githooks)
-[![Code Climate](https://codeclimate.com/github/rhumaric/grunt-githooks.png)](https://codeclimate.com/github/rhumaric/grunt-githooks)
+[![Build Status](https://travis-ci.org/erwanjegouzo/grunt-contrib-githooks.png?branch=master)](https://travis-ci.org/erwanjegouzo/grunt-contrib-githooks)
+[![Code Climate](https://codeclimate.com/erwanjegouzo/grunt-contrib-githooks.png)](https://codeclimate.com/github/erwanjegouzo/grunt-contrib-githooks)
 
 > A Grunt plugin to help bind Grunt tasks to Git hooks
 
@@ -11,13 +11,13 @@ This plugin requires Grunt `~0.4.1`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-githooks --save-dev
+npm install grunt-contrib-githooks --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-githooks');
+grunt.loadNpmTasks('grunt-contrib-githooks');
 ```
 
 ## The "githooks" task
@@ -99,7 +99,7 @@ Your existing hook would look something like this:
 ```js
 // Some code run before Grunt starts
 
-// GRUNT-GITHOOKS START // GRUNT-GITHOOKS END
+// GRUNT-contrib-GITHOOKS START // GRUNT-contrib-GITHOOKS END
 
 // Some code run after Grunt starts
 ```
@@ -121,7 +121,7 @@ grunt.initConfig({
         // Customize the hashbang to say 'Shell script'
         hashbang: '#!/bin/sh',
         // Plugin comes in with a sheel script template already. Handy, innit?
-        template: './node_modules/grunt-githooks/templates/shell.hb',
+        template: './node_modules/grunt-contrib-githooks/templates/shell.hb',
         // Customize the markers so comments start with #
         startMarker: '## LET THE FUN BEGIN',
         endMarker: '## PARTY IS OVER'
@@ -138,16 +138,16 @@ In the template, you've got access to the following variables:
  - *args*: `String` with the list of arguments to provide to the task
  - *gruntfileDirectory*: Absolute path to the directory containing the Gruntfile
  - *preventExit*: Flag telling if the hook should avoid exiting after the grunt task
- - *options*: The options provided to the grunt-githooks task to create this hook
+ - *options*: The options provided to the grunt-contrib-githooks task to create this hook
 
 #### Extending the plugin
 
 Pretty annoying when you're using a library that's missing the exact extension point you need to tweak its functionalities? 
-`grunt-githooks` is based on a lot of small functions and most of them are exposed so you can override them. 
+`grunt-contrib-githooks` is based on a lot of small functions and most of them are exposed so you can override them. 
 If you need feel, free to tinker with the internals (at your own risk though ;)). Could be something along:
 
 ```js
-var gruntGithooks = require('grunt-githooks/tasks/githooks');
+var gruntGithooks = require('grunt-contrib-githooks/tasks/githooks');
 
 var originalFunction = gruntGithooks.internals.Hook.prototype.getHookContent;
 gruntGithooks.internals.Hook.prototype.getHookContent = function () {
@@ -197,11 +197,11 @@ It also contains a `shell.hb` file with the template for a shell script hook.
 
 #### startMarker
 Type: `String`
-Default: `'// GRUNT-GITHOOKS START'`
+Default: `'// GRUNT-contrib-GITHOOKS START'`
 
 #### endMarker
 Type: `String`
-Default: `'// GRUNT-GITHOOKS END'`
+Default: `'// GRUNT-contrib-GITHOOKS END'`
 
 `startMarker` and `endMarker` are markers the plugin use to know where to insert code if a hook already exist. 
 If the existing hook doesn't have these markers, the code will simply be appended.
@@ -228,12 +228,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## Release History
- 
- - 2013-12-17   v0.3.1   [Escaping fix in the hooks templates](https://github.com/rhumaric/grunt-githooks/pull/15) by @gyoshev. 
- - 2013-11-13   v0.3.0   New *command* option to specify which command to run, in case full path to Grunt is needed. NodeJS template now uses new `escapeBackslashes` helper to make sure backslashes ('\') are properly escaped when written in the hook
- - 2013-10-05   v0.2.0   New *args* option to specify arguments to hooked task. Bugfix to allow running grunt when the Gruntfile is not at the root of the project.
- - 2013-09-02   v0.1.0   Initial functionnalities
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rhumaric/grunt-githooks/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+ - 2014-06-25   v0.0.1   Forked from grunt-githook v0.3.1
