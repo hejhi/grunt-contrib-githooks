@@ -12,16 +12,21 @@ grunt_process.stdout.on('data', function (data) {
   console.log(data);
 });
 
+grunt_process.stdout.setEncoding('utf8');
+grunt_process.stdout.on('data', function (data) {
+  console.log(data);
+});
+
+grunt_process.stderr.setEncoding('utf8');
 grunt_process.stderr.on('data', function (data) {
-  console.error(data);
-  {{#unless preventExit}}process.exit();{{/unless}}
+  console.error('stderr:', data);
 });
 
 grunt_process.on('error', function (err) {
   console.error(err);
-  {{#unless preventExit}}process.exit();{{/unless}}
+  process.exit();
 });
 
 grunt_process.on('close', function(exitCode) {
-  {{#unless preventExit}}process.exit(exitCode);{{/unless}}
+  process.exit(exitCode);
 });
