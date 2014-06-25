@@ -1,9 +1,12 @@
 # grunt-contrib-githooks
 
 [![Build Status](https://travis-ci.org/erwanjegouzo/grunt-contrib-githooks.png?branch=master)](https://travis-ci.org/erwanjegouzo/grunt-contrib-githooks)
-[![Code Climate](https://codeclimate.com/erwanjegouzo/grunt-contrib-githooks.png)](https://codeclimate.com/github/erwanjegouzo/grunt-contrib-githooks)
 
 > A Grunt plugin to help bind Grunt tasks to Git hooks
+
+This project is orginally based of the work from [grunt-githooks](https://github.com/rhumaric/grunt-githooks) and brings one major improvement:
+* Uses ```spawn``` instead of ```exec``` to send a stream instead of waiting for the hook completion to send back the stdout.
+* Won't break on you if your buffer exceeds 200k.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -229,4 +232,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- - 2014-06-25   v0.0.1   Forked from grunt-githook v0.3.1
+ - 2014-06-25   v0.0.1   Forked from [grunt-githooks](https://github.com/rhumaric/grunt-githooks) v0.3.1
