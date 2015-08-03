@@ -8,10 +8,6 @@ var grunt_process = spawn(
   }
 );
 
-grunt_process.stdout.on('data', function (data) {
-  console.log(data);
-});
-
 grunt_process.stdout.setEncoding('utf8');
 grunt_process.stdout.on('data', function (data) {
   console.log(data);
